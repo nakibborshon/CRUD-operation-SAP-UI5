@@ -1,0 +1,44 @@
+<mvc:View controllerName="com.bjit.project5.borshonproject5.controller.View1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:u="sap.m.SearchField">
+    <Page id="page" titleAlignment="Center" title="CRUD Operation Trial">
+        <Toolbar>
+            <Button text="Sort" icon="sap-icon://sort" press="oReadSorter" />
+            <Button text="Read Parameter" icon="sap-icon://split" press="oReadParameter" />
+            <Button text="Filter" icon="sap-icon://clear-filter" press="onReadFilters" />
+            <Button text="Show All" icon="sap-icon://feedback" press="onReadAll" />
+            <ToolbarSpacer />
+            <SearchField width="auto" parseError="Search with ID" search="onReadKey" id="searchBox"/>
+        </Toolbar>
+        <Table id="idProducts" items="{/results}">
+            <columns>
+                <Column>
+                    <Text text="ID" />
+                </Column>
+                <Column>
+                    <Text text="Name" />
+                </Column>
+                <Column>
+                    <Text text="Price" />
+                </Column>
+                <Column>
+                    <Text text="Rating" />
+                </Column>
+                <Column />
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{ID}" />
+                        <Input value="{Name}" editable="false" />
+                        <Input value="{Price}" editable="false" />
+                        <Input value="{Rating}" editable="false" />
+                        <HBox>
+                            <Button icon="sap-icon://user-edit" text="Edit" press="onEdit" />
+                            <Button class="sapUiSmallMarginBeginEnd" type="Accept" icon="sap-icon://add-employee" text="Create" press="onCreate" />
+                            <Button icon="sap-icon://delete" type="Reject" text="Delete" press="onDelete" />
+                        </HBox>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
